@@ -16,8 +16,8 @@ const Home = () => {
       <Slider_proj />
       <div className="container">
           <Products />
-        <Title subTitle="Products" title="What all we have" />
-        <About />
+        {/* <Title subTitle="Products" title="What all we have" />
+        <About /> */}
         <Title subTitle='Contact Us'title='Get in Touch'/>
         <Contact/>
         
