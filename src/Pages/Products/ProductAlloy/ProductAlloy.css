@@ -1,0 +1,510 @@
+/* Main page */
+
+  
+  /* Background properties */
+  .bg-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../../../assets/Alloy/alloybg.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+  }
+  
+  .bg-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.89);
+    z-index: -1;
+  }
+  
+  /* Alloy container */
+  .product-alloy-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 120px 90px 0 90px;
+    color: #ffffff;
+  }
+  
+  .product-alloy-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .product-alloy-wrapper::-webkit-scrollbar {
+    width: 0;
+  }
+  
+  .product-alloy-wrapper {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  .text-section {
+    flex: 0.8;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    text-align: justify;
+  }
+  
+  .left-section {
+    width: 50%;
+    padding: 20px;
+  }
+  
+  .right-section {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Logo */
+  .description-logo {
+    width: 120px;
+    height: auto;
+    margin-bottom: 30px;
+    display: block;
+    align-self: flex-start;
+  }
+  
+  /* Slideshow section */
+  .slideshow-section {
+    flex: 1;
+    max-width: 600px;
+    align-self: flex-start;
+    margin-top: 120px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    height: 300px; /* Adjust height as needed */ 
+  }
+  
+  .slideshow {
+    position: relative;
+    width: 80%; /* Adjust width as needed */
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+  
+  .slide.active {
+    opacity: 1;
+  }
+  
+  /* Slide in animation for slideshow images */
+  @keyframes slideInFromLeft {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  .each-slide {
+    opacity: 0;
+    animation: slideInFromLeft 5s ease-in-out forwards;
+  }
+  
+  /* Slide out animation to return slideshow images to original state */
+  @keyframes slideOutToRight {
+    from {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  .each-slide.prev {
+    animation: slideOutToRight 5s ease-in-out forwards;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .text-section {
+    opacity: 0;
+    transform: translateX(-100%);
+    animation: slideInText 2s forwards;
+    color: #ffffff;
+    letter-spacing: 0.7px;
+    line-height: 1.5;
+  }
+  
+  @keyframes slideInText {
+    from {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  } 
+  
+  ul {
+    opacity: 0;
+    animation: fadeInList 1s forwards;
+  }
+  
+  @keyframes fadeInList {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .text-section ul {
+    animation-delay: 1s;
+  }
+  
+  .each-slide {
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+    transition: transform 2s ease-in-out;
+  }
+  
+  .each-slide.active {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .each-slide.prev {
+    transform: translateX(-100%);
+  }
+  
+  .each-slide.next {
+    transform: translateX(100%);
+  }
+  
+  .text-section p {
+    font-size: 35px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+  
+  .text-section ul {
+    list-style-type: circle;
+    margin-left: 20px;
+  }
+  
+  .text-section li {
+    font-size: 35px;
+    line-height: 1.4;
+  }
+  
+  .scrollable-container {
+    max-height: calc(100vh - 200px);
+    overflow: auto;
+  }
+  
+  /* Product grid */
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 50px;
+    padding: 0 20px;
+    justify-items: center; /* Center items in grid cells */
+    margin: 0 40px 40px 40px;
+  }
+  
+  .product-item {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+  
+  .product-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 5px;
+    
+    transition: transform 0.5s ease, filter 0.5s ease;
+  }
+  
+  .product-item:hover img {
+    transform: scale(1.05);
+    filter: brightness(0.7);
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+  }
+  
+  /* Modal */
+  .modal {
+    /* margin-top: 70px; *//* i added this . check */
+    
+    /* padding: 50px 50px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+  
+  .modal-content {
+    margin: auto;
+    display: block;
+    max-width: 80%;
+    max-height: 80%;
+    width: auto;
+    height: auto;
+    border: 2px solid #181717;
+    border-radius: 10px;
+  }
+  
+  .close {
+
+    margin-top: 80px;/* i ADDED */
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #626060;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .fullscreen-btn,
+  .zoom-controls,
+  .navigation-controls {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .zoom-controls button {
+    margin-right: 5px;
+  }
+  
+  .navigation-controls button {
+    margin: 0 5px;
+  }
+  
+  .slide-number {
+    margin: 0 10px;
+    color: #fff;
+  }
+  
+  .slide-number {
+    position: absolute;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .top-right {
+    top: 20px;
+    right: 20px;
+  }
+  
+  .top-left {
+    top: 20px;
+    left: 20px;
+  }
+  
+  .bottom-center {
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .modal .arrow {
+    position: absolute;
+    top: 50%;
+   
+    transform: translateY(-50%);
+    color: #817979;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 2;
+    user-select: none;
+  }
+  
+  .modal .arrow.left {
+    left: 35px;
+    user-select: none;
+  }
+  
+  .modal .arrow.right {
+    right: 35px;
+    user-select: none;
+  }
+  
+  .modal .slideshow-controls {
+    margin-top: 80px; /* I ADDED */
+    position: absolute;
+    top: 20px;
+    left: 50px;
+    color: #5f5c5c;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 2;
+    user-select: none;
+  }
+  
+  /* Cards container */
+  .cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px; /* Adjust the gap between cards */
+    margin: 50px auto;
+    justify-content: center; /* Center the cards container */
+  }
+  
+  /* Individual card styles */
+  .card {
+    padding-top: 50px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    flex: 0 1 300px; /* Adjust card width */
+    max-width: 100%;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  }
+  
+  .card img {
+    width: 80px;
+    height: 80px; /* Adjust height as needed */
+    margin-left: 110px;
+    border-radius: 10px;
+    margin-top: 10px;
+  }
+  
+  .card-content {
+    padding: 20px;
+    color: rgb(139, 139, 139); /* Set text color to white */
+    margin-bottom: 50px;
+  }
+  
+  .card h3 {
+    font-size: 1.7em;
+    margin-bottom: 10px;
+    color: rgb(117, 117, 117); /* Set text color to white */
+    text-align: center;
+  }
+  
+  .card p {
+    font-size: 1.2em;
+    line-height: 1.5;
+    margin:30px 30px 30px 30px;
+    color: rgb(116, 115, 115); /* Set text color to white */
+  }
+  
+  .see-more-content {
+    display: inline-block; /* Display as inline-block to wrap content */
+    padding: 8px 12px; /* Adjust padding for inner spacing */
+    border: 2px solid #999999; /* Solid border with blue color */
+    border-radius: 5px; /* Rounded corners for a smoother look */
+    color: #aa864d; /* Blue text color */
+    text-decoration: none; /* Remove underline from links */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for color and background */
+    margin: 20px 40px 20px 60px; /* Adjust margin for spacing */
+  }
+  
+  .see-more-content:hover {
+    background-color: #79541c; /* Change background color on hover */
+    color: #463315; /* Change text color to white on hover */
+  }
+  
+  /* Optional: Increase specificity to target anchor tags */
+  .see-more-content:hover,
+  .see-more-content:hover {
+    transform: scale(1.02); /* Scale up on hover for a subtle effect */
+  }
+  
+
+  @media screen and (max-width:600px){
+    .product-alloy-container{
+      flex-direction: column-reverse;
+      margin: 58px 10px 0px 10px;
+    }
+    .product-alloy-container .left-section{
+      width: 100%;
+    }
+    .product-alloy-container .right-section{
+      width: 100%;
+    }
+    .product-grid{
+      padding: 0px 0px;
+      margin: 0 10px 0px 10px;
+      gap: 6px;
+      margin-top: 20px;
+    }
+    .slideshow-section{
+      margin: 0px 0px;
+    }
+    .slideshow{
+      width: 98%;
+    }
+    .modal-content{
+      max-width: 97%;
+    }
+    
+  }

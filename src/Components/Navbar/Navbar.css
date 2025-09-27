@@ -1,0 +1,245 @@
+nav {
+  width: 100%;
+  /* background: #e4cfcf; */
+  color: #fff;
+  /* text-shadow: 0.5px 1px #686868; */
+  max-height: 100px;
+
+  padding: 4px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 100;
+  /* remove below two */
+  /*     box-shadow: 0 0 10px #000;
+    background: rgba(0,0,0,0.5 ); */
+    user-select: none;
+}
+.logo {
+  width: 180px;
+  /* height: 68px; */
+}
+
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+
+nav ul li {
+  /* display: inline-block;
+  list-style: none; */
+  position: relative;
+  margin: 5px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.nav-on-scroll {
+  background: #2c2b2b;
+  transition: 0.5s;
+}
+
+.active {
+  padding-bottom: 2px;
+  border-bottom: 2px solid #fff;
+}
+
+.dropdown:hover .subnav{
+  display: block;
+}
+
+.subnav {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #333;
+  padding: 0;
+  list-style: none;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  /* margin-top: 20px; */
+  padding: 10px 0; /* Add padding to make sure it's separated from the navbar */
+}
+.subnav li {
+  padding: 10px 20px;
+  white-space: nowrap;
+}
+.subnav li:hover {
+  background: #444;
+}
+/* .subnav li a {
+  color: #fff;
+  text-decoration: none;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+
+.dropdown:hover .subnav {
+  display: block;
+}
+.subnav {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #333;
+  padding: 10px 0;
+  list-style: none;
+}
+.subnav li {
+  margin: 0;
+  padding: 10px 20px;
+  white-space: nowrap;
+}
+.subnav li:hover {
+  background: #444;
+}
+.subnav li a {
+  color: #fff;
+  text-decoration: none;
+}
+ */
+
+
+
+
+
+
+
+
+
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 600px) {
+  .logo {
+    width: 120px;
+    /* height: 68px; */
+  }
+  nav ul li {
+    display: inline-block;
+    list-style: none;
+    margin: 7px 7px;
+    font-size: 15px;
+  }
+
+  #nav-about{
+    display: none;
+  }
+  #nav-contact{
+    display: none;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.btn{
+    background-color:#fff;
+    color:#212121;
+    padding: 14px 25px;
+    font-size: 16px;
+    border-radius: 30px;
+    cursor: pointer;
+    border:0;
+    outline:0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .btn.activebtn {
+    background-color: #1b1a1a;
+    /* background-color: #b5acac; */
+    border: 1.5px solid white;
+    color: #fff;
+  
+  }
+  .btn img{
+    /* width:20px;
+    margin-left: 10px; */
+  }
+  
+
+  .btn:hover{
+    background-color: black;
+    color: white;
+  }
+
+
+
+
+
+
+
+
+  /* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+  @media screen and (max-width: 600px) {
+    .btn{
+      background:#fff;
+      color:#212121;
+      padding: 7px 12px;
+      font-size: 12px;
+      border-radius: 30px;
+      cursor: pointer;
+      border:0;
+      outline:0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+  }
+.dropdown_menu{
+
+  display: flex;
+  flex-direction: column;
+  
+
+}
+
+
+.dropdown_box{
+  height: 400px;
+  width: 300px;
+  border: 1.5px solid white;
+}
