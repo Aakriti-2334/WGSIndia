@@ -15,7 +15,7 @@ const Home = () => {
       {/* <Navbar /> */}
       <Slider_proj />
       <div className="container">
-          <Products />
+          {/* <Products /> */}
         {/* <Title subTitle="Products" title="What all we have" />
         <About /> */}
         <Title subTitle='Contact Us'title='Get in Touch'/>
